@@ -9,6 +9,22 @@ const Products = () => {
 
   const categories = ['All', 'Nuts', 'Dried Fruits', 'Seeds', 'Grains', 'Specialty Items'];
 
+  // Fallback image handler
+  const handleImageError = (e) => {
+    e.target.src = 'https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg?auto=compress&cs=tinysrgb&w=400';
+  };
+
+  // Get category-specific fallback image
+  const getCategoryFallbackImage = (category) => {
+    const fallbackImages = {
+      'Nuts': 'https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg?auto=compress&cs=tinysrgb&w=400',
+      'Dried Fruits': 'https://images.pexels.com/photos/1030842/pexels-photo-1030842.jpeg?auto=compress&cs=tinysrgb&w=400',
+      'Seeds': 'https://images.pexels.com/photos/1435735/pexels-photo-1435735.jpeg?auto=compress&cs=tinysrgb&w=400',
+      'Grains': 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400',
+      'Specialty Items': 'https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg?auto=compress&cs=tinysrgb&w=400'
+    };
+    return fallbackImages[category] || fallbackImages['Nuts'];
+  };
   const filteredProducts = productsData.filter(product => {
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          product.origin.toLowerCase().includes(searchTerm.toLowerCase());
@@ -82,6 +98,7 @@ const Products = () => {
                   src={product.image}
                   alt={product.name}
                   className="w-full h-48 object-cover"
+                  onError={handleImageError}
                 />
                 <div className="absolute top-4 right-4 bg-amber-600 text-white px-3 py-1 rounded-full text-sm font-medium">
                   {product.category}
@@ -133,7 +150,7 @@ const Products = () => {
                     alt={selectedProduct.name}
                     className="w-full h-64 object-cover rounded-lg"
                     onError={(e) => {
-                      e.target.src = 'https://images.pexels.com/photos/1295572/pexels-photo-1295572.jpeg?auto=compress&cs=tinysrgb&w=400';
+                      e.target.src = getCategoryFallbackImage(selectedProduct.category);
                     }}
                   />
                 </div>
