@@ -175,7 +175,7 @@ export const productsData: Product[] = [
     category: "Nuts",
     origin: "USA (Smoked in UK)",
     description: "Shelled almonds roasted and flavored with smoke seasoning.",
-    image: "/images/Almonds-Smoked.jpg",
+    image: "/images/Almonds-Smoked-1.jpg",
     ingredients: "Almonds (96%), Smoke Flavour (4%) (including salt, dextrose, rice flour, dried yeast, sugar, yeast extract powder, smoked paprika, black pepper, onion & garlic powders, natural flavourings, citric acid, anti-caking agent).",
     allergenInfo: "May also contain other nuts, sesame, peanuts*, gluten & sulphites. *Peanuts used on same production line.",
     nutritionalValues: {
