@@ -102,7 +102,7 @@ export const productsData: Product[] = [
     category: "Nuts",
     origin: "Spain",
     description: "Blanched and chopped almonds with typical almond flavour, firm, creamy white/light beige color.",
-    image: "/images/Almonds-Nibbed.jpg",
+    image: "/images/Almonds-Nibbed-2.jpg",
     ingredients: "Almond (100%)",
     allergenInfo: "May also contain other nuts, sesame, gluten & sulphites.",
     nutritionalValues: {
@@ -128,7 +128,7 @@ export const productsData: Product[] = [
     category: "Nuts",
     origin: "USA, Australia",
     description: "Selected shelled almonds, should not be rancid or mouldy.",
-    image: "/images/Raw-Almonds.jpg",
+    image: "/images/Almonds-Raw-With-Skin-scaled.jpg",
     ingredients: "Almond (100%)",
     allergenInfo: "Packed in a factory handling nuts, sesame, gluten, soya & sulphites, stores peanuts.",
     nutritionalValues: {
@@ -223,7 +223,7 @@ export const productsData: Product[] = [
     category: "Dried Fruits",
     origin: "Philippines",
     description: "Saba banana slices lightly fried in coconut oil, dipped in sugar solution. Crunchy and firm with characteristic banana flavor.",
-    image: "/images/Banana-Chips.jpg",
+    image: "/images/Banana-Chips-2.jpg",
     ingredients: "Fresh peeled bananas 55%, coconut oil 26%, sugar refined 18.97%, natural banana flavour 0.03%.",
     allergenInfo: "May also contain nuts, sesame, gluten & sulphites.",
     nutritionalValues: {
@@ -247,7 +247,7 @@ export const productsData: Product[] = [
     category: "Seeds",
     origin: "Czech Republic, the Netherlands, Australia",
     description: "Very small crunchy poppy seeds, grey-blue in color, characteristic poppy seed odor and flavor without off-flavors.",
-    image: "/images/Blue-Poppy-Seeds.jpg",
+    image: "/images/Blue-Poppy-Seeds-1.jpg",
     ingredients: "Blue Poppy Seeds (100%)",
     allergenInfo: "May also contain nuts, sesame, gluten & sulphites.",
     nutritionalValues: {
@@ -273,7 +273,7 @@ export const productsData: Product[] = [
     category: "Nuts",
     origin: "Bolivia, Peru",
     description: "Selected clean, sound shelled brazil nuts with consistent size. Crisp texture, characteristic flavor, pale yellow/brown color.",
-    image: "/images/Brazil-Nuts.jpg",
+    image: "/images/Brazil-Nuts-1.jpg",
     ingredients: "Brazil nuts (100%)",
     allergenInfo: "May also contain other nuts, sesame, gluten & sulphites.",
     nutritionalValues: {
@@ -299,7 +299,7 @@ export const productsData: Product[] = [
     category: "Nuts",
     origin: "India, Vietnam, Brazil",
     description: "Obtained through roasting and shelling, light yellow to pale ivory color, free from foreign odours/flavours.",
-    image: "/images/Cashews-Broken.jpg",
+    image: "/images/Cashew-Broken.jpg",
     ingredients: "Cashews (100%)",
     allergenInfo: "May contain other nuts, sesame, gluten & sulphites.",
     nutritionalValues: {
@@ -323,7 +323,7 @@ export const productsData: Product[] = [
     category: "Nuts",
     origin: "Vietnam (Roasted and salted in UK)",
     description: "Obtained through roasting and salting, consistent shape.",
-    image: "/images/Roasted-Salted-Cashews.jpg",
+    image: "/images/Cashews-Roasted-Salted-scaled.jpg",
     ingredients: "Cashews Nuts (94%), Rapeseed oil, Salt.",
     allergenInfo: "Packed in factory handling nuts, sesame, gluten, soya & sulphites and stores peanuts.",
     nutritionalValues: {
@@ -347,7 +347,7 @@ export const productsData: Product[] = [
     category: "Nuts",
     origin: "India, Vietnam, Brazil",
     description: "Obtained through roasting and shelling, consistent shape with less than 1/8 broken kernels.",
-    image: "/images/Whole-Cashews.jpg",
+    image: "/images/CASHEWS-WHOLE-scaled.jpg",
     ingredients: "Cashews (100%)",
     allergenInfo: "Packed in factory handling nuts, sesame, gluten, soya & sulphites and stores peanuts.",
     nutritionalValues: {
@@ -371,7 +371,7 @@ export const productsData: Product[] = [
     category: "Dried Fruits",
     origin: "Poland",
     description: "High-quality fresh sour cherries (mainly Lutowka variety), washed, pitted, IQF frozen, osmotically dehydrated in apple concentrate, dried, inspected, sunflower oil added to prevent clumping.",
-    image: "/images/Cherries.jpg",
+    image: "/images/Cherries-Sour.jpg",
     ingredients: "Sour Cherry (~80%), Apple Juice Concentrate (~19%), Sunflower Oil (~1%).",
     allergenInfo: "May also contain nuts, sesame, gluten & sulphites.",
     nutritionalValues: {
@@ -397,7 +397,7 @@ export const productsData: Product[] = [
     category: "Seeds",
     origin: "Peru, Bolivia, Argentina",
     description: "High in essential fatty acids, antioxidants, vitamins and minerals, soluble fiber; gluten-free, suitable for celiacs.",
-    image: "/images/Chia-Seeds.jpg",
+    image: "/images/Chia-Seeds-2.jpg",
     ingredients: "Chia Seeds (100%)",
     allergenInfo: "May also contain nuts, sesame, gluten & sulphites.",
     nutritionalValues: {
@@ -423,7 +423,7 @@ export const productsData: Product[] = [
     category: "Specialty Items",
     origin: "Sri Lanka, Indonesia, Philippines, Vietnam",
     description: "De-shelled, washed, blanched, grated, dried, sieved, hygienically packed fine grade desiccated coconut. White in colour, free from yellow specks or discoloration. Unsweetened.",
-    image: "/images/Coconut-Desiccated-Fine.jpg",
+    image: "/images/Coconut-Desiccated-Fine-1.jpg",
     ingredients: "Fine Desiccated Coconut (unsweetened)",
     allergenInfo: "May also contain nuts, sesame, gluten & sulphites.",
     nutritionalValues: {
@@ -449,7 +449,7 @@ export const productsData: Product[] = [
     category: "Specialty Items",
     origin: "Sri Lanka, Indonesia, Philippines",
     description: "Raw, unsweetened, flat brittle coconut strips with free-flowing texture. White to cream colour with no off-flavours.",
-    image: "/images/Coconut-Raw-Chips.jpg",
+    image: "/images/Coconut-Chips-Raw-1.jpg",
     ingredients: "Raw unsweetened chip coconut",
     allergenInfo: "May also contain nuts, sesame, gluten & sulphites.",
     nutritionalValues: {
@@ -475,7 +475,7 @@ export const productsData: Product[] = [
     category: "Specialty Items",
     origin: "Sri Lanka, Indonesia, Philippines",
     description: "Toasted, unsweetened desiccated coconut, shredded and dried. Cream to golden brown color, free from discoloration.",
-    image: "/images/Coconut-Toasted-Chips.jpg",
+    image: "/images/Coconut-Chips-Toasted-1.jpg",
     ingredients: "Toasted unsweetened coconut (100%)",
     allergenInfo: "May also contain nuts, sesame, gluten & sulphites.",
     nutritionalValues: {
@@ -501,7 +501,7 @@ export const productsData: Product[] = [
     category: "Grains",
     origin: "Israel or Italy",
     description: "Circular grain balls of regular shape, creamy colour, free from off flavour and odour.",
-    image: "/images/Cous-Cous-Giant.jpg",
+    image: "/images/Couscous-Giant-scaled.jpg",
     ingredients: "Wheat Flour (100%)",
     allergenInfo: "May also contain nuts, sesame & sulphites.",
     nutritionalValues: {
