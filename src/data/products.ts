@@ -174,7 +174,7 @@ export const productsData: Product[] = [
     name: "Almonds Smoked",
     category: "Nuts",
     origin: "USA (Smoked in UK)",
-    description: "Shelled almonds roasted and flavored with smoke seasoning.",
+    description: "Premium California almonds transformed through our artisanal smoking process, delivering a rich, savory flavor with subtle smoky notes. Each almond is carefully roasted to perfection, then infused with our signature smoke blend featuring paprika, garlic, and natural seasonings. These gourmet nuts offer the perfect balance of smoky sophistication and wholesome nutrition, making them an irresistible snack for discerning palates who appreciate both flavor and quality.",
     image: "/images/Almonds-Smoked.jpg",
     ingredients: "Almonds (96%), Smoke Flavour (4%) (including salt, dextrose, rice flour, dried yeast, sugar, yeast extract powder, smoked paprika, black pepper, onion & garlic powders, natural flavourings, citric acid, anti-caking agent).",
     allergenInfo: "May also contain other nuts, sesame, peanuts*, gluten & sulphites. *Peanuts used on same production line.",
