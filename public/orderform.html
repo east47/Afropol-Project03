@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Form</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    .product-row { margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Order Form</h2>
+  <form id="orderForm">
+    <div id="productList">
+      <div class="product-row">
+        <select name="product">
+          <option>Pistachio Green Peeled</option>
+          <option>Pistachio Raw Kernel</option>
+          <option>Roasted Salted Pistachios</option>
+        </select>
+        <input type="number" name="quantity" placeholder="kg" required />
+      </div>
+    </div>
+    <button type="button" onclick="addProduct()">Add Product</button><br><br>
+    <input type="text" name="postcode" placeholder="Postcode" required /><br><br>
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    function addProduct() {
+      const list = document.getElementById('productList');
+      const row = document.createElement('div');
+      row.className = 'product-row';
+      row.innerHTML = `
+        <select name="product">
+          <option>Pistachio Green Peeled</option>
+          <option>Pistachio Raw Kernel</option>
+          <option>Roasted Salted Pistachios</option>
+        </select>
+        <input type="number" name="quantity" placeholder="kg" required />
+      `;
+      list.appendChild(row);
+    }
+
+    document.getElementById("orderForm").onsubmit = function(e) {
+      e.preventDefault();
+      const rows = [...document.querySelectorAll('.product-row')];
+      const products = rows.map(row => ({
+        product: row.querySelector('select').value,
+        quantity: parseFloat(row.querySelector('input').value)
+      }));
+      const postcode = document.querySelector('[name="postcode"]').value;
+      window.voiceflow.sendDataToAssistant({ products, postcode });
+    };
+  </script>
+</body>
+</html>
