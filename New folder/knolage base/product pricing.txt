@@ -1,0 +1,50 @@
+Product,Price per 1 kg (GBP)
+Almonds Blanched,8
+Almonds Flaked,7.5
+Almonds Ground,7
+Almonds Nibbed,7.5
+Almonds Raw With Skin,7
+Almonds Slivered,7.5
+Almonds Smoked,8.5
+Apricots,3.75
+Banana Chips,3.25
+Blue Poppy Seeds,5
+Brazil Nuts,9.5
+Cashews Broken,5.25
+Cashews Roasted Salted,6
+Cashews Whole,6.5
+Cherries,3.25
+Chia Seeds,3.75
+Coconut Desiccated Fine,2.75
+Coconut Raw Chips,2.75
+Coconut Toasted Chips,3
+Cous Cous Giant,2
+Cranberries,4
+Currants,2.75
+Dates,2.4
+Figs,3.25
+Hazelnuts Blanched,7
+Hazelnuts Ground,6.5
+Hazelnuts Raw With Skin,6
+Macadamia Halves,13.5
+Panko Breadcrumbs,1.25
+Peanuts Blanched,2
+Pecans,8.5
+Pine Nuts,11
+Pistachio Green Peeled,40
+Pistachio Raw Kernel,14
+Pistachios Roasted Salted,15
+Prunes Ashlock,2.75
+Pumpkin Seeds,2
+Quinoa Black,5
+Quinoa Red,5
+Quinoa White,5
+Raisins Brown,2.4
+Raisins Golden,3.25
+Sesame Seeds,2.75
+Sultanas,2.4
+Sunflower Seeds,1.6
+Walnut Light Amber Halves,6.75
+Walnut Light Halves,6.25
+Walnut Pieces,5.25
+Wasabi Peas,1.4
