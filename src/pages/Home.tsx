@@ -35,6 +35,17 @@ const Home = () => {
                   Get In Touch
                 </Link>
               </div>
+              
+              {/* Get Estimate Button */}
+              <div className="mt-6 flex justify-center">
+                <a
+                  href="/orderform.html"
+                  className="inline-flex items-center px-8 py-4 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition-all duration-200 transform hover:scale-105 shadow-lg"
+                >
+                  Get Estimate
+                  <ArrowRight size={20} className="ml-2" />
+                </a>
+              </div>
             </div>
           </div>
         </div>

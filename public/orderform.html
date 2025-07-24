@@ -26,6 +26,61 @@
             padding: 2rem;
         }
 
+        .navigation-bar {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1.5rem;
+            background: #f3f4f6;
+            color: #374151;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            background: #d97706;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-link.primary {
+            background: #d97706;
+            color: white;
+        }
+
+        .nav-link.primary:hover {
+            background: #b45309;
+        }
+
+        .nav-link.secondary {
+            background: white;
+            color: #d97706;
+            border-color: #d97706;
+        }
+
+        .nav-link.secondary:hover {
+            background: #d97706;
+            color: white;
+        }
+
         .header {
             text-align: center;
             margin-bottom: 3rem;
@@ -338,6 +393,18 @@
                 padding: 1rem;
             }
 
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .nav-link {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
             .page-title {
                 font-size: 2rem;
             }
@@ -355,6 +422,15 @@
 </head>
 <body>
     <div class="container">
+        <!-- Navigation Bar -->
+        <div class="navigation-bar">
+            <div class="nav-links">
+                <a href="/" class="nav-link">← Back to Home</a>
+                <a href="/#products" class="nav-link primary">Product List</a>
+                <a href="/#contact" class="nav-link secondary">Get in Touch</a>
+            </div>
+        </div>
+
         <div class="header">
             <div class="logo">
                 <div>
