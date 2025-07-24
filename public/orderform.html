@@ -1,56 +1,772 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Order Form</title>
-  <style>
-    body { font-family: sans-serif; padding: 20px; }
-    .product-row { margin-bottom: 10px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Estimation - Afropol Fine Foods</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #374151;
+            background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #d97706;
+        }
+
+        .logo-subtitle {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #d97706;
+            letter-spacing: 0.1em;
+        }
+
+        .page-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.125rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+        }
+
+        .form-header {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .form-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-content {
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #fbbf24;
+        }
+
+        .product-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr auto;
+            gap: 1rem;
+            align-items: center;
+            padding: 1rem;
+            background: #f9fafb;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s ease;
+        }
+
+        .product-row:hover {
+            background: #f3f4f6;
+            border-color: #d97706;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .form-select, .form-input {
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            background: white;
+        }
+
+        .form-select:focus, .form-input:focus {
+            outline: none;
+            border-color: #d97706;
+            box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1);
+        }
+
+        .quantity-input {
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .remove-btn {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            min-width: 80px;
+        }
+
+        .remove-btn:hover {
+            background: #dc2626;
+            transform: translateY(-1px);
+        }
+
+        .add-product-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .add-product-btn:hover {
+            background: #059669;
+            transform: translateY(-1px);
+        }
+
+        .delivery-section {
+            background: #fef3c7;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid #fbbf24;
+        }
+
+        .postcode-input {
+            max-width: 200px;
+        }
+
+        .calculate-btn {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1.125rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .results-container {
+            margin-top: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: none;
+        }
+
+        .results-header {
+            background: #10b981;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .results-content {
+            padding: 2rem;
+        }
+
+        .breakdown-section {
+            margin-bottom: 2rem;
+        }
+
+        .breakdown-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-name {
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .item-quantity {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .item-price {
+            font-weight: 600;
+            color: #059669;
+            min-width: 80px;
+            text-align: right;
+        }
+
+        .shipping-info {
+            background: #dbeafe;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .shipping-method {
+            font-weight: 600;
+            color: #1e40af;
+        }
+
+        .delivery-time {
+            font-size: 0.875rem;
+            color: #3730a3;
+            margin-top: 0.25rem;
+        }
+
+        .total-section {
+            background: #f0fdf4;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 2px solid #10b981;
+            text-align: center;
+        }
+
+        .total-amount {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #059669;
+        }
+
+        .error-message {
+            background: #fef2f2;
+            color: #dc2626;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #fecaca;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .product-row {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .form-content {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h2>Order Form</h2>
-  <form id="orderForm">
-    <div id="productList">
-      <div class="product-row">
-        <select name="product">
-          <option>Pistachio Green Peeled</option>
-          <option>Pistachio Raw Kernel</option>
-          <option>Roasted Salted Pistachios</option>
-        </select>
-        <input type="number" name="quantity" placeholder="kg" required />
-      </div>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <div>
+                    <div class="logo-text">AFROPOL</div>
+                    <div class="logo-subtitle">FINE FOODS</div>
+                </div>
+            </div>
+            <h1 class="page-title">Order Estimation</h1>
+            <p class="page-subtitle">Calculate your order total with accurate pricing and shipping costs</p>
+        </div>
+
+        <div class="form-container">
+            <div class="form-header">
+                <h2>Product Selection & Delivery</h2>
+                <p>Select your products and get an instant price estimate</p>
+            </div>
+
+            <div class="form-content">
+                <form id="orderForm">
+                    <div class="section">
+                        <h3 class="section-title">Products</h3>
+                        <div id="productList">
+                            <div class="product-row">
+                                <div class="form-group">
+                                    <label class="form-label">Product</label>
+                                    <select name="product" class="form-select" required>
+                                        <option value="">Select a product...</option>
+                                        <option value="Almonds Blanched">Almonds Blanched</option>
+                                        <option value="Almonds Flaked">Almonds Flaked</option>
+                                        <option value="Almonds Ground">Almonds Ground</option>
+                                        <option value="Almonds Nibbed">Almonds Nibbed</option>
+                                        <option value="Almonds Raw With Skin">Almonds Raw With Skin</option>
+                                        <option value="Almonds Slivered">Almonds Slivered</option>
+                                        <option value="Almonds Smoked">Almonds Smoked</option>
+                                        <option value="Apricots">Apricots</option>
+                                        <option value="Banana Chips">Banana Chips</option>
+                                        <option value="Blue Poppy Seeds">Blue Poppy Seeds</option>
+                                        <option value="Brazil Nuts">Brazil Nuts</option>
+                                        <option value="Cashews Broken">Cashews Broken</option>
+                                        <option value="Cashews Roasted Salted">Cashews Roasted Salted</option>
+                                        <option value="Cashews Whole">Cashews Whole</option>
+                                        <option value="Cherries">Cherries</option>
+                                        <option value="Chia Seeds">Chia Seeds</option>
+                                        <option value="Coconut Desiccated Fine">Coconut Desiccated Fine</option>
+                                        <option value="Coconut Raw Chips">Coconut Raw Chips</option>
+                                        <option value="Coconut Toasted Chips">Coconut Toasted Chips</option>
+                                        <option value="Cous Cous Giant">Cous Cous Giant</option>
+                                        <option value="Cranberries">Cranberries</option>
+                                        <option value="Currants">Currants</option>
+                                        <option value="Dates">Dates</option>
+                                        <option value="Figs">Figs</option>
+                                        <option value="Hazelnuts Blanched">Hazelnuts Blanched</option>
+                                        <option value="Hazelnuts Ground">Hazelnuts Ground</option>
+                                        <option value="Hazelnuts Raw With Skin">Hazelnuts Raw With Skin</option>
+                                        <option value="Macadamia Halves">Macadamia Halves</option>
+                                        <option value="Panko Breadcrumbs">Panko Breadcrumbs</option>
+                                        <option value="Peanuts Blanched">Peanuts Blanched</option>
+                                        <option value="Pecans">Pecans</option>
+                                        <option value="Pine Nuts">Pine Nuts</option>
+                                        <option value="Pistachio Green Peeled">Pistachio Green Peeled</option>
+                                        <option value="Pistachio Raw Kernel">Pistachio Raw Kernel</option>
+                                        <option value="Pistachios Roasted Salted">Pistachios Roasted Salted</option>
+                                        <option value="Prunes Ashlock">Prunes Ashlock</option>
+                                        <option value="Pumpkin Seeds">Pumpkin Seeds</option>
+                                        <option value="Quinoa Black">Quinoa Black</option>
+                                        <option value="Quinoa Red">Quinoa Red</option>
+                                        <option value="Quinoa White">Quinoa White</option>
+                                        <option value="Raisins Brown">Raisins Brown</option>
+                                        <option value="Raisins Golden">Raisins Golden</option>
+                                        <option value="Sesame Seeds">Sesame Seeds</option>
+                                        <option value="Sultanas">Sultanas</option>
+                                        <option value="Sunflower Seeds">Sunflower Seeds</option>
+                                        <option value="Walnut Light Amber Halves">Walnut Light Amber Halves</option>
+                                        <option value="Walnut Light Halves">Walnut Light Halves</option>
+                                        <option value="Walnut Pieces">Walnut Pieces</option>
+                                        <option value="Wasabi Peas">Wasabi Peas</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Quantity (kg)</label>
+                                    <input type="number" name="quantity" class="form-input quantity-input" min="0.1" step="0.1" required placeholder="0.0">
+                                </div>
+                                <button type="button" class="remove-btn" onclick="removeProduct(this)" style="display: none;">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" class="add-product-btn" onclick="addProduct()">
+                            <span>+</span> Add Another Product
+                        </button>
+                    </div>
+
+                    <div class="section">
+                        <div class="delivery-section">
+                            <h3 class="section-title">Delivery Information</h3>
+                            <div class="form-group">
+                                <label class="form-label">Delivery Location</label>
+                                <select name="location" class="form-select" required>
+                                    <option value="">Select delivery location...</option>
+                                    <option value="London">London</option>
+                                    <option value="UK">UK (excluding London)</option>
+                                    <option value="Europe">Europe/International</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="calculate-btn">Calculate Order Total</button>
+                </form>
+
+                <div class="error-message" id="errorMessage"></div>
+            </div>
+        </div>
+
+        <div class="results-container" id="resultsContainer">
+            <div class="results-header">
+                <h2>Order Estimate</h2>
+                <p>Your detailed price breakdown</p>
+            </div>
+            <div class="results-content" id="resultsContent">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
     </div>
-    <button type="button" onclick="addProduct()">Add Product</button><br><br>
-    <input type="text" name="postcode" placeholder="Postcode" required /><br><br>
-    <button type="submit">Submit</button>
-  </form>
 
-  <script>
-    function addProduct() {
-      const list = document.getElementById('productList');
-      const row = document.createElement('div');
-      row.className = 'product-row';
-      row.innerHTML = `
-        <select name="product">
-          <option>Pistachio Green Peeled</option>
-          <option>Pistachio Raw Kernel</option>
-          <option>Roasted Salted Pistachios</option>
-        </select>
-        <input type="number" name="quantity" placeholder="kg" required />
-      `;
-      list.appendChild(row);
-    }
+    <script>
+        // Product pricing data
+        const productPrices = {
+            "Almonds Blanched": 8,
+            "Almonds Flaked": 7.5,
+            "Almonds Ground": 7,
+            "Almonds Nibbed": 7.5,
+            "Almonds Raw With Skin": 7,
+            "Almonds Slivered": 7.5,
+            "Almonds Smoked": 8.5,
+            "Apricots": 3.75,
+            "Banana Chips": 3.25,
+            "Blue Poppy Seeds": 5,
+            "Brazil Nuts": 9.5,
+            "Cashews Broken": 5.25,
+            "Cashews Roasted Salted": 6,
+            "Cashews Whole": 6.5,
+            "Cherries": 3.25,
+            "Chia Seeds": 3.75,
+            "Coconut Desiccated Fine": 2.75,
+            "Coconut Raw Chips": 2.75,
+            "Coconut Toasted Chips": 3,
+            "Cous Cous Giant": 2,
+            "Cranberries": 4,
+            "Currants": 2.75,
+            "Dates": 2.4,
+            "Figs": 3.25,
+            "Hazelnuts Blanched": 7,
+            "Hazelnuts Ground": 6.5,
+            "Hazelnuts Raw With Skin": 6,
+            "Macadamia Halves": 13.5,
+            "Panko Breadcrumbs": 1.25,
+            "Peanuts Blanched": 2,
+            "Pecans": 8.5,
+            "Pine Nuts": 11,
+            "Pistachio Green Peeled": 40,
+            "Pistachio Raw Kernel": 14,
+            "Pistachios Roasted Salted": 15,
+            "Prunes Ashlock": 2.75,
+            "Pumpkin Seeds": 2,
+            "Quinoa Black": 5,
+            "Quinoa Red": 5,
+            "Quinoa White": 5,
+            "Raisins Brown": 2.4,
+            "Raisins Golden": 3.25,
+            "Sesame Seeds": 2.75,
+            "Sultanas": 2.4,
+            "Sunflower Seeds": 1.6,
+            "Walnut Light Amber Halves": 6.75,
+            "Walnut Light Halves": 6.25,
+            "Walnut Pieces": 5.25,
+            "Wasabi Peas": 1.4
+        };
 
-    document.getElementById("orderForm").onsubmit = function(e) {
-      e.preventDefault();
-      const rows = [...document.querySelectorAll('.product-row')];
-      const products = rows.map(row => ({
-        product: row.querySelector('select').value,
-        quantity: parseFloat(row.querySelector('input').value)
-      }));
-      const postcode = document.querySelector('[name="postcode"]').value;
-      window.voiceflow.sendDataToAssistant({ products, postcode });
-    };
-  </script>
+        function addProduct() {
+            const productList = document.getElementById('productList');
+            const newRow = document.createElement('div');
+            newRow.className = 'product-row';
+            newRow.innerHTML = `
+                <div class="form-group">
+                    <label class="form-label">Product</label>
+                    <select name="product" class="form-select" required>
+                        <option value="">Select a product...</option>
+                        ${Object.keys(productPrices).map(product => 
+                            `<option value="${product}">${product}</option>`
+                        ).join('')}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Quantity (kg)</label>
+                    <input type="number" name="quantity" class="form-input quantity-input" min="0.1" step="0.1" required placeholder="0.0">
+                </div>
+                <button type="button" class="remove-btn" onclick="removeProduct(this)">Remove</button>
+            `;
+            productList.appendChild(newRow);
+            updateRemoveButtons();
+        }
+
+        function removeProduct(button) {
+            button.closest('.product-row').remove();
+            updateRemoveButtons();
+        }
+
+        function updateRemoveButtons() {
+            const rows = document.querySelectorAll('.product-row');
+            rows.forEach((row, index) => {
+                const removeBtn = row.querySelector('.remove-btn');
+                if (rows.length > 1) {
+                    removeBtn.style.display = 'block';
+                } else {
+                    removeBtn.style.display = 'none';
+                }
+            });
+        }
+
+        function calculateShipping(totalQuantity, location) {
+            let shippingCost = 0;
+            let shippingMethod = '';
+            let deliveryTime = '';
+
+            if (totalQuantity >= 125) {
+                // Pallet method
+                shippingMethod = 'Pallet Delivery';
+                deliveryTime = '3-5 working days';
+                
+                switch (location) {
+                    case 'London':
+                        shippingCost = 45;
+                        break;
+                    case 'UK':
+                        shippingCost = 65;
+                        break;
+                    case 'Europe':
+                        shippingCost = 100;
+                        deliveryTime = '7-10 working days';
+                        break;
+                }
+            } else if (totalQuantity < 120) {
+                // Van method
+                shippingMethod = 'Van Delivery';
+                shippingCost = 5;
+                deliveryTime = 'Same day - 3 days';
+            } else {
+                // Between 120-125kg, use pallet method
+                shippingMethod = 'Pallet Delivery';
+                deliveryTime = '3-5 working days';
+                
+                switch (location) {
+                    case 'London':
+                        shippingCost = 45;
+                        break;
+                    case 'UK':
+                        shippingCost = 65;
+                        break;
+                    case 'Europe':
+                        shippingCost = 100;
+                        deliveryTime = '7-10 working days';
+                        break;
+                }
+            }
+
+            return { shippingCost, shippingMethod, deliveryTime };
+        }
+
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            setTimeout(() => {
+                errorDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        function displayResults(orderData) {
+            const resultsContainer = document.getElementById('resultsContainer');
+            const resultsContent = document.getElementById('resultsContent');
+
+            let html = `
+                <div class="breakdown-section">
+                    <h3 class="breakdown-title">Order Breakdown</h3>
+            `;
+
+            orderData.products.forEach(product => {
+                html += `
+                    <div class="breakdown-item">
+                        <div class="item-details">
+                            <div class="item-name">${product.name}</div>
+                            <div class="item-quantity">${product.quantity}kg × £${product.pricePerKg.toFixed(2)}/kg</div>
+                        </div>
+                        <div class="item-price">£${product.subtotal.toFixed(2)}</div>
+                    </div>
+                `;
+            });
+
+            html += `
+                </div>
+                
+                <div class="breakdown-section">
+                    <h3 class="breakdown-title">Shipping Information</h3>
+                    <div class="shipping-info">
+                        <div class="shipping-method">${orderData.shipping.method}</div>
+                        <div class="delivery-time">Estimated delivery: ${orderData.shipping.deliveryTime}</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="item-details">
+                            <div class="item-name">Shipping Cost</div>
+                            <div class="item-quantity">Total weight: ${orderData.totalQuantity.toFixed(1)}kg</div>
+                        </div>
+                        <div class="item-price">£${orderData.shipping.cost.toFixed(2)}</div>
+                    </div>
+                </div>
+
+                <div class="breakdown-section">
+                    <div class="breakdown-item">
+                        <div class="item-details">
+                            <div class="item-name">Subtotal</div>
+                        </div>
+                        <div class="item-price">£${orderData.subtotal.toFixed(2)}</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="item-details">
+                            <div class="item-name">Shipping</div>
+                        </div>
+                        <div class="item-price">£${orderData.shipping.cost.toFixed(2)}</div>
+                    </div>
+                </div>
+
+                <div class="total-section">
+                    <h3>Total Amount</h3>
+                    <div class="total-amount">£${orderData.grandTotal.toFixed(2)}</div>
+                </div>
+            `;
+
+            resultsContent.innerHTML = html;
+            resultsContainer.style.display = 'block';
+            resultsContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const rows = document.querySelectorAll('.product-row');
+            const location = document.querySelector('[name="location"]').value;
+
+            if (!location) {
+                showError('Please select a delivery location.');
+                return;
+            }
+
+            const products = [];
+            let totalQuantity = 0;
+            let subtotal = 0;
+            let hasUnknownProducts = false;
+
+            rows.forEach(row => {
+                const productName = row.querySelector('[name="product"]').value;
+                const quantity = parseFloat(row.querySelector('[name="quantity"]').value);
+
+                if (productName && quantity > 0) {
+                    const pricePerKg = productPrices[productName] || 0;
+                    
+                    if (pricePerKg === 0 && productName) {
+                        hasUnknownProducts = true;
+                    }
+
+                    const productSubtotal = quantity * pricePerKg;
+                    
+                    products.push({
+                        name: productName,
+                        quantity: quantity,
+                        pricePerKg: pricePerKg,
+                        subtotal: productSubtotal
+                    });
+
+                    totalQuantity += quantity;
+                    subtotal += productSubtotal;
+                }
+            });
+
+            if (products.length === 0) {
+                showError('Please add at least one product with a valid quantity.');
+                return;
+            }
+
+            if (hasUnknownProducts) {
+                showError('Some products are not in our pricing list. Please contact us for a custom quote.');
+                return;
+            }
+
+            const shipping = calculateShipping(totalQuantity, location);
+            const grandTotal = subtotal + shipping.shippingCost;
+
+            const orderData = {
+                products: products,
+                totalQuantity: totalQuantity,
+                subtotal: subtotal,
+                shipping: shipping,
+                grandTotal: grandTotal,
+                location: location
+            };
+
+            // Store calculation data for backend processing
+            console.log('Order calculation data:', orderData);
+
+            displayResults(orderData);
+        });
+
+        // Initialize remove button visibility
+        updateRemoveButtons();
+    </script>
 </body>
 </html>
