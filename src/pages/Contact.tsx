@@ -12,9 +12,26 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry! We will get back to you soon.');
+    
+    // For now, we'll create a mailto link with the form data
+    const subject = encodeURIComponent(`Inquiry from ${formData.name} - ${formData.company || 'Individual'}`);
+    const body = encodeURIComponent(`
+Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company || 'N/A'}
+Phone: ${formData.phone || 'N/A'}
+
+Message:
+${formData.message}
+    `);
+    
+    // Open email client with pre-filled information
+    window.location.href = `mailto:mail@afropol.com?subject=${subject}&body=${body}`;
+    
+    // Show confirmation message
+    alert('Thank you for your inquiry! Your email client will open with your message pre-filled. Please send it to complete your inquiry.');
+    
+    // Clear the form
     setFormData({ name: '', email: '', company: '', phone: '', message: '' });
   };
 
